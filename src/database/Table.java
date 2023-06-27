@@ -3,7 +3,6 @@ package database;
 import utils.Convertor;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +14,12 @@ public class Table {
     public Table(String path) {
         this.path = path;
     }
-    public void insert(HashMap <String, String> row) {
+    public void insert(String row, boolean overRide) {
         try {
-            FileWriter fw = new FileWriter(path, true);
-            System.out.println(Convertor.mapToString(row));
-            fw.write(Convertor.mapToString(row) + '\n');
+            FileWriter fw = new FileWriter(path, overRide);
+            fw.write(row);
+            if (row.charAt(row.length() - 1) != '\n')
+                fw.write('\n');
             fw.close();
         }
         catch (Exception e) {

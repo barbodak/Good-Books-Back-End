@@ -9,15 +9,14 @@ import java.util.HashMap;
 public class Controller {
     private String login(HashMap <String, String> data) {
         try {
-            ArrayList<HashMap <String, String>> userdata = Database.getInstance().getTable("userdata").get();
-            for (var user : userdata)
-                if (user.get("username").equals(data.get("username"))) {
-                    if (user.get("password").equals(data.get("password")))
-                        return "login done";
-                    else
-                        return "wrong password";
-                }
-            return "user not found";
+            HashMap<String, HashMap<String, String>> userDataMap = Database.getInstance().getUserDataMap();
+            if (!userDataMap.containsKey(data.get("username")))
+                return "user not found";
+            if (userDataMap.get(data.get("username")).get("password").equals(data.get("password")))
+                return "login done";
+            else
+                return "wrong password";
+
         }
         catch (Exception e) {
             return "";
@@ -26,7 +25,11 @@ public class Controller {
     }
     private String signup(HashMap <String, String> data) {
         try {
-            Database.getInstance().getTable("userdata").insert(data);
+            HashMap<String, HashMap<String, String>> userDataMap = Database.getInstance().getUserDataMap();
+            if (userDataMap.containsKey(data.get("username")))
+                return "username taken";
+            userDataMap.put(data.get("username"), data);
+            Database.getInstance().updateUserDataMap();
             return "done";
         }
         catch (Exception e) {
