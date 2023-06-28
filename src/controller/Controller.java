@@ -5,6 +5,7 @@ import utils.Convertor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Controller {
     private String login(HashMap <String, String> data) {
@@ -13,7 +14,7 @@ public class Controller {
             if (!userDataMap.containsKey(data.get("username")))
                 return "user not found";
             if (userDataMap.get(data.get("username")).get("password").equals(data.get("password")))
-                return "login done";
+                return "done";
             else
                 return "wrong password";
 
@@ -36,6 +37,27 @@ public class Controller {
             return "went to shit";
         }
     }
+    private String getUser(HashMap <String, String> data) {
+        try {
+            HashMap<String, HashMap<String, String>> userDataMap = Database.getInstance().getUserDataMap();
+//            System.out.println(data.get("username"));
+            return Convertor.mapToString(userDataMap.get(data.get("username")));
+        }
+        catch (Exception e) {
+            return "went to shit";
+        }
+    }
+    private String updateUser(HashMap <String, String> data) {
+        try {
+            HashMap<String, String> userDataMap = Database.getInstance().getUserDataMap().get(data.get("username"));
+            userDataMap.putAll(data);
+            Database.getInstance().updateUserDataMap();
+            return "done";
+        }
+        catch (Exception e) {
+            return "went to shit";
+        }
+    }
     public String run(String command, String data) {
         HashMap <String, String> dataMap = Convertor.stringToMap(data);
         switch (command) {
@@ -43,6 +65,10 @@ public class Controller {
                 return login(dataMap);
             case "signup":
                 return signup(dataMap);
+            case "getUser":
+                return getUser(dataMap);
+            case "updateUser":
+                return updateUser(dataMap);
         }
         return "error";
     }
