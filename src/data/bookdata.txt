@@ -1,0 +1,15 @@
+name:Harry Potter and the Sorcerer\’s Stone,,author:J.K.Rowling,,path:assets/bookCovers/1.jpeg,,id:0
+name:Harry Potter and the Sorcerer\’s Stone,,author:J.K.Rowling,,path:assets/bookCovers/b1.jpg,,id:1
+name:Harry Potter and the Chamber of Secrets,,author:J.K.Rowling,,path:assets/bookCovers/2.jpeg,,id:2
+name:Harry Potter and the Chamber of Secrets,,author:J.K.Rowling,,path:assets/bookCovers/b2.jpg,,id:3
+name:Harry Potter and the Prisoner of Azkaban,,author:J.K.Rowling,,path:assets/bookCovers/3.jpeg,,id:4
+name:Harry Potter and the Prisoner of Azkaban,,author:J.K.Rowling,,path:assets/bookCovers/b3.jpg,,id:5
+name:Harry Potter and the Goblet of Fire,,author:J.K.Rowling,,path:assets/bookCovers/4.jpeg,,id:6
+name:Harry Potter and the Goblet of Fire,,author:J.K.Rowling,,path:assets/bookCovers/b4.jpg,,id:7
+name:Harry Potter and the Order of the Phoenix,,author:J.K.Rowling,,path:assets/bookCovers/5.jpeg,,id:8
+name:Harry Potter and the Order of the Phoenix,,author:J.K.Rowling,,path:assets/bookCovers/b5.jpg,,id:9
+name:Harry Potter and the Half-Blood Prince,,author:J.K.Rowling,,path:assets/bookCovers/6.jpeg,,id:10
+name:Harry Potter and the Half-Blood Prince,,author:J.K.Rowling,,path:assets/bookCovers/b6.jpg,,id:11
+name:Harry Potter and the Deathly Hallows,,author:J.K.Rowling,,path:assets/bookCovers/7.jpeg,,id:12
+name:Harry Potter and the Deathly Hallows,,author:J.K.Rowling,,path:assets/bookCovers/b7.jpg,,id:13
+name:The Ballad of Songbirds and Snakes,,author:Suzanne Collins,,path:assets/bookCovers/_MG_7911_7.png,,id:14

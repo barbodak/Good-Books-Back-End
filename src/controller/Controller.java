@@ -55,8 +55,33 @@ public class Controller {
             return "done";
         }
         catch (Exception e) {
+            e.printStackTrace();
             return "went to shit";
         }
+    }
+    private String getBooks(HashMap <String, String> data, String bookName) {
+        try {
+            ArrayList<String> books = Convertor.stringToArray(data.get(bookName));
+            StringBuilder res = new StringBuilder();
+//            System.out.println(books);
+//            System.out.println(Database.getInstance().getBookDataMap().get("0").get("name"));
+            for (var id : books)
+                res.append(Convertor.bookMapToString(Database.getInstance().getBookDataMap().get(id))).append("\nEND\n");
+            if (res.length() > 0) {
+                res.deleteCharAt(res.length() - 1);
+                res.deleteCharAt(res.length() - 1);
+                res.deleteCharAt(res.length() - 1);
+                res.deleteCharAt(res.length() - 1);
+                res.deleteCharAt(res.length() - 1);
+            }
+            return res.toString();
+        }
+        catch (Exception e) {
+            return "went to shit";
+        }
+    }
+    private String getOwnedBooks(HashMap <String, String> data) {
+        return getBooks(data, "ownedBooks");
     }
     public String run(String command, String data) {
         HashMap <String, String> dataMap = Convertor.stringToMap(data);
@@ -69,6 +94,8 @@ public class Controller {
                 return getUser(dataMap);
             case "updateUser":
                 return updateUser(dataMap);
+            case "getOwnedBooks":
+                return getOwnedBooks(dataMap);
         }
         return "error";
     }
