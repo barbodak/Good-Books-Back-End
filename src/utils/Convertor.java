@@ -88,4 +88,21 @@ public class Convertor {
             return "";
         }
     }
+    public static String mapOfBooksToString(HashMap <String, HashMap <String, String>> m) {
+        try {
+            StringBuilder res = new StringBuilder();
+            for (Map.Entry<String, HashMap <String, String>> entry : m.entrySet()) {
+                for (Map.Entry<String, String> entry1 : entry.getValue().entrySet())
+                    res.append(String.format("%s:%s,,", entry1.getKey(), entry1.getValue()));
+                res.deleteCharAt(res.length() - 1);
+                res.deleteCharAt(res.length() - 1);
+                res.append('\n');
+            }
+            return res.toString();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }
